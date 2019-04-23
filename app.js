@@ -5,6 +5,9 @@ const hbs     = require('hbs')
 const path    = require('path')
 const bodyParser = require('body-parser');
 
+require('dotenv').config() //to use .env stuff 
+
+console.log(process.env.TOKEN, process.env.ANYTHINGIWANT)
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -85,4 +88,6 @@ app.get('/using-params/:favAnimals', function (req, res, next) {
   //res.status(200).json({whatever:'success'})
 })
 
-app.listen(3000, () => console.log('App listening on port 3000!'))
+
+
+app.listen(process.env.PORT, () => console.log('App listening on port 3000!'))
